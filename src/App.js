@@ -1,10 +1,10 @@
 import { Switch, Route } from "react-router-dom";
 
-import CheckTransform from "./components/CheckTransform";
+import CheckTransform from "./components/CheckTransform/CheckTransform";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Main from "./pages/Main/Main";
-import CubeRotate from "./components/RotateCube";
+import CubeRotate from "./components/RotateCube/RotateCube";
 
 function App() {
   return (

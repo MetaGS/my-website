@@ -32,7 +32,7 @@
 
 .navbar__logo {
   font-family: var(--nanum);
-  font-size: 2.1rem;
+  font-size: 1.7rem;
   display: flex;
 }
 
@@ -51,18 +51,32 @@
 
 .navbar__right-block {
   margin-left: auto;
+  flex-grow: 1;
 }
 
 .navbar__links {
   display: flex;
   list-style: none;
-  font-size: 2.1rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .navbar__link {
   margin-right: 15px;
+}
+
+.navbar__link--lower {
+  text-transform: lowercase;
+}
+
+.navbar__link:first-child {
+  margin-left: auto;
+}
+
+.navbar__link:last-child {
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .navbar__text {

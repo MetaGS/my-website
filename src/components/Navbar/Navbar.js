@@ -20,9 +20,9 @@ const Navbar = (props) => {
         </div>
         <div className="navbar__right-block">
           <ul className="navbar__links">
-            <li className="navbar__link">Github</li>
-            <li className="navbar__link">LinkedIn</li>
-            <li className="navbar__link">Blog</li>
+            <li className="navbar__link navbar__link--lower">Github</li>
+            <li className="navbar__link navbar__link--lower">LinkedIn</li>
+            <li className="navbar__link navbar__link--lower">Blog</li>
             <li className="navbar__link">Contact Me</li>
           </ul>
         </div>

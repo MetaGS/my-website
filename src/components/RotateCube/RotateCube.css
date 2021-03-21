@@ -1,0 +1,43 @@
+.rotate-cube-main {
+  position: relative;
+  --cube-color: #30312f;
+  z-index: 0;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: darkslateblue; */
+}
+
+.cube__rotate {
+  position: absolute;
+  left: 0%;
+  top: 30%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  perspective: 600px;
+}
+
+.cube-self {
+  transition: transform 1.2s ease-out;
+  background-color: var(--cube-color);
+  box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 400px;
+  width: 400px;
+  transform: rotateY(30deg);
+}
+
+.cube-self0 {
+}
+.cube-self1 {
+}
+.cube-self2 {
+}
+.cube-self3 {
+}
+.cube-self4 {
+}
+.cube-self5 {
+}

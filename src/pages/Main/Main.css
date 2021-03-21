@@ -1,6 +1,8 @@
 .main-page {
-  background-color: var(--secondary-color);
-  height: calc(100vh - var(--navbar-height));
+  background-color: #010101;
+  min-height: calc(100vh - var(--navbar-height));
+  height: 100%;
+  --dark-grey: rgb(53, 53, 53);
 }
 
 .main-page__container {
@@ -8,6 +10,11 @@
   padding-top: 20px;
   padding-bottom: 20px;
   height: 100%;
+}
+
+.main-page__first-block {
+  min-height: 400px;
+  background-image: linear-gradient(to bottom, rgb(199, 195, 195), #010101);
 }
 
 .main-page__left {
@@ -20,9 +27,9 @@
 }
 
 .title {
-  font-size: 4rem;
+  font-size: 3rem;
   font-family: var(--nanum);
-  color: darkgrey;
+  color: rgb(245, 240, 240);
 }
 
 .main-page__title {
@@ -30,7 +37,7 @@
 
 .main-page__name {
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--black);
 }
 
 .subtitle {
@@ -52,6 +59,7 @@
 
 .main-page__description {
   font-size: 1.5rem;
+  color: var(--dark-grey);
 }
 
 .main-page__right {
