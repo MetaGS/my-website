@@ -2,7 +2,7 @@
   background-color: #010101;
   min-height: calc(100vh - var(--navbar-height));
   height: 100%;
-  --dark-grey: rgb(53, 53, 53);
+  --dark-grey: rgb(231, 231, 231);
 }
 
 .main-page__container {
@@ -14,7 +14,11 @@
 
 .main-page__first-block {
   min-height: 400px;
-  background-image: linear-gradient(to bottom, rgb(199, 195, 195), #010101);
+  background: linear-gradient(to top, #010101, rgba(0, 0, 0, 0)),
+    url("../../assets/header-main-page.png");
+  background-position: right;
+  background-size: cover;
+  padding-top: var(--navbar-height);
 }
 
 .main-page__left {

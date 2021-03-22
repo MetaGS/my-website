@@ -1,10 +1,7 @@
 .navbar {
   height: var(--navbar-height);
-  background-image: linear-gradient(
-    to right,
-    var(--primary-color),
-    var(--secondary-color)
-  );
+  position: absolute;
+  width: 100%;
   background-size: 400% 400%;
   background-position: 0% 0%;
   color: var(--white);
@@ -12,7 +9,7 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-duration: 20s;
-  box-shadow: 0px 2px 4px var(--black);
+  /* box-shadow: 0px 2px 4px var(--black); */
 }
 @keyframes navbar-background {
   0% {
