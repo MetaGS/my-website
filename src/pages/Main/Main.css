@@ -3,6 +3,7 @@
   min-height: calc(100vh - var(--navbar-height));
   height: 100%;
   --dark-grey: rgb(231, 231, 231);
+  overflow-x: hidden;
 }
 
 .main-page__container {
@@ -14,10 +15,11 @@
 
 .main-page__first-block {
   min-height: 400px;
-  background: linear-gradient(to top, #010101, rgba(0, 0, 0, 0)),
-    url("../../assets/header-main-page.png");
-  background-position: right;
-  background-size: cover;
+  height: 100vh;
+  background: linear-gradient(to top, #000000, rgba(0, 0, 0, 0)),
+    url("../../assets/header-main-page.jpeg");
+  background-position: left;
+  background-size: contain;
   padding-top: var(--navbar-height);
 }
 
@@ -67,5 +69,7 @@
 }
 
 .main-page__right {
-  width: 50%;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }

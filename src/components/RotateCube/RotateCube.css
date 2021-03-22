@@ -1,6 +1,6 @@
 .rotate-cube-main {
   position: relative;
-  --cube-color: #30312f;
+
   z-index: 0;
   height: 90vh;
   width: 100%;

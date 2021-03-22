@@ -2,18 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import "./CheckTransform.css";
 
-const initialTransforms = [
-  {
-    transform: "rotateY(50deg)",
-  },
+import blocks from "./blocks.js";
 
-  {
-    transform: "rotateY(0deg)",
-  },
-  {
-    transform: "rotateY(-50deg)",
-  },
-];
+const initialTransforms = Array(blocks.length).fill({});
 
 const CheckTransform = (props) => {
   const [transforms, setTransforms] = useState(initialTransforms);
