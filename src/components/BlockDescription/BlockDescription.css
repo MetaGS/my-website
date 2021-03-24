@@ -1,0 +1,68 @@
+.block-desc {
+  font-size: clamp(0.3rem, 0.7vw, 1rem); /* box relative size */
+  position: relative;
+  box-sizing: content-box;
+  background-color: var(--white);
+  color: var(--black);
+  width: 13em;
+
+  padding: 1em 0 1em 10000px;
+  margin-left: -10000px;
+  display: flex;
+  justify-content: center;
+}
+
+.block-desc__title {
+  font-size: inherit;
+  font-family: var(--oswald);
+  font-size: 4em;
+  text-transform: uppercase;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+
+.block-desc__decor {
+  font-size: inherit;
+  position: absolute;
+  background-color: var(--black);
+}
+
+.block-desc__decor1 {
+  width: 3em;
+  height: 14em;
+  right: 12em;
+  top: 8em;
+}
+.block-desc__decor2 {
+  width: 4em;
+  height: 4em;
+  top: 27em;
+  right: 11em;
+}
+.block-desc__decor3 {
+  width: 1.8em;
+  height: 4em;
+  right: 0;
+  top: 15em;
+}
+.block-desc__decor4 {
+  width: 4.5em;
+  height: 1.6em;
+  right: 0.5em;
+  top: 24em;
+}
+
+.block-desc__decor5 {
+  width: 4em;
+  height: 7em;
+  bottom: 7em;
+  right: 0;
+}
+
+@media {
+}
+
+@media (max-width: 850px) {
+}
+@media (max-width: 600px) {
+}

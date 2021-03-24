@@ -1,0 +1,12 @@
+.social-links {
+  color: var(--white);
+  font-size: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 20px 0;
+}
+
+.social-link {
+  margin-left: 10px;
+}

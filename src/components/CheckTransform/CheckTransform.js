@@ -10,7 +10,7 @@ const CheckTransform = (props) => {
   const [transforms, setTransforms] = useState(initialTransforms);
   const [containerWidth, setContainerWidth] = useState(500);
   const [activeBoxIndex, setActiveBoxIndex] = useState(
-    Math.floor(transforms.length / 2)
+    Math.floor((transforms.length - 1) / 2)
   );
   const refContainer = useRef(null);
 
@@ -69,6 +69,15 @@ const CheckTransform = (props) => {
   return (
     <div className="check-transform__wrapper" ref={refContainer}>
       {transformStyles.map((cubeTransform, index) => {
+        const {
+          photo,
+          title,
+          description,
+          alt,
+          subtitle,
+          photoClassName,
+        } = blocks[index];
+
         return (
           <div
             className={`cube cube${index}`}
@@ -81,7 +90,16 @@ const CheckTransform = (props) => {
               }}
               style={cubeTransform}
             >
-              this is the face
+              <article className="my-feature">
+                <img
+                  src={photo}
+                  alt={alt}
+                  className={`my-feature__photo my-feature__${photoClassName}`}
+                />
+                <h3 className="my-feature__title">{title}</h3>
+                <span className="my-feature__subtitle">{subtitle}</span>
+                <p className="my-feature__description">{description}</p>
+              </article>
             </div>
           </div>
         );

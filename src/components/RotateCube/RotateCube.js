@@ -3,39 +3,19 @@ import PropTypes from "prop-types";
 import "./RotateCube.css";
 
 const itemsToSpin = [
-  {
-    z: 0,
-    x: 0,
-    name: "block A",
-  },
-  {
-    z: 0,
-    x: 0,
-    name: "block B",
-  },
-  {
-    z: 0,
-    x: 0,
-    name: "block C",
-  },
-  {
-    z: 0,
-    x: 0,
-    name: "block D",
-  },
-  {
-    z: 0,
-    x: 0,
-    name: "block E",
-  },
+  "wahaha how are you",
+  "make it real",
+  "is everything is alright",
+  "how Are you",
+  "BRother",
 ];
 
 const genuineRadian = 6.28319;
 
-const RotateCube = ({ blocks = itemsToSpin, className = "" }) => {
-  const permamentRadian = 6.28319 / blocks.length;
+const RotateCube = ({ children = itemsToSpin, className = "" }) => {
+  const permamentRadian = 6.28319 / children.length;
 
-  const initialSpin = blocks.map((item, index) => {
+  const initialSpin = children.map((item, index) => {
     const itemRadian = permamentRadian * index;
     const changeRadian = genuineRadian - itemRadian;
     return { x: 0, z: 0, itemRadian, changeRadian };
@@ -113,10 +93,10 @@ const RotateCube = ({ blocks = itemsToSpin, className = "" }) => {
                 }}
                 style={newPosition}
               >
-                <h2>{name}</h2>
+                {children[index]}
               </div>
-              <div>
-                {/* {newPositions.map(({ changeRadian, name }) => {
+              {/* <div>
+                {newPositions.map(({ changeRadian, name }) => {
                   return (
                     <button
                       onClick={() => {
@@ -127,8 +107,8 @@ const RotateCube = ({ blocks = itemsToSpin, className = "" }) => {
                       {name}
                     </button>
                   );
-                })} */}
-              </div>
+                })} 
+              </div>*/}
             </div>
           );
         }
@@ -137,6 +117,14 @@ const RotateCube = ({ blocks = itemsToSpin, className = "" }) => {
   );
 };
 
-RotateCube.propTypes = {};
+RotateCube.propTypes = {
+  children: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
+    })
+  ),
+};
 
 export default RotateCube;

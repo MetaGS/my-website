@@ -54,17 +54,22 @@
 .navbar__links {
   display: flex;
   list-style: none;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  color: rgba(100, 100, 100, 0.9);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .navbar__link {
   margin-right: 15px;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
 }
 
+.navbar__link:hover {
+  color: var(--white);
+}
 .navbar__link--lower {
-  text-transform: lowercase;
 }
 
 .navbar__link:first-child {

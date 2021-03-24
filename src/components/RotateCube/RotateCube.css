@@ -1,9 +1,12 @@
 .rotate-cube-main {
   position: relative;
-
+  --cube-size: 30vw;
+  --cube-max-size: 400px;
   z-index: 0;
-  height: 90vh;
-  width: 100%;
+  height: calc(var(--cube-size) * 1.3);
+  max-height: calc(var(--cube-max-size) * 1.3);
+  width: calc(var(--cube-size) * 2.3);
+  max-width: calc(var(--cube-max-size) * 2.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,8 +15,8 @@
 
 .cube__rotate {
   position: absolute;
-  left: 0%;
-  top: 30%;
+  left: 50%;
+  top: 20px; /* top is 20px because when the block growth by tranlslateZ it can go outside of containing block */
   transform: translateX(-50%);
   width: 200px;
   height: 200px;
@@ -25,8 +28,10 @@
   background-color: var(--cube-color);
   box-shadow: 10px 4px 4px rgba(0, 0, 0, 0.25),
     -10px 4px 4px rgba(0, 0, 0, 0.25);
-  height: 400px;
-  width: 400px;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  max-height: var(--cube-max-size);
+  max-width: var(--cube-max-size);
   transform: rotateY(30deg);
 }
 

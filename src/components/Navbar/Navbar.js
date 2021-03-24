@@ -23,6 +23,7 @@ const Navbar = (props) => {
             <li className="navbar__link navbar__link--lower">Github</li>
             <li className="navbar__link navbar__link--lower">LinkedIn</li>
             <li className="navbar__link navbar__link--lower">Blog</li>
+            <li className="navbar__link navbar__link--lower">about me</li>
             <li className="navbar__link">Contact Me</li>
           </ul>
         </div>
