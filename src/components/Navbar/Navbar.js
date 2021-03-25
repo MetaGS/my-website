@@ -14,7 +14,7 @@ const Navbar = (props) => {
             <div>
               <span className="navbar__logo-bold">MUNAR</span>
               <br />
-              <span className="navbar__logo-light">ALYMOV</span>
+              <span className="navbar__logo-light">ALYMO</span>
             </div>
           </div>
         </div>

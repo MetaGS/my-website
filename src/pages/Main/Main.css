@@ -23,9 +23,10 @@
 
   background: linear-gradient(to top, #000000, rgba(0, 0, 0, 0)),
     url("../../assets/main-page-bg.png");
-  background-position: left;
-  background-size: 100px 200px;
-  padding-top: var(--navbar-height);
+  background-position: center;
+  background-size: 1400px 600px;
+  background-repeat: no-repeat;
+  margin-top: var(--navbar-height);
 }
 
 .main-page__left {

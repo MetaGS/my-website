@@ -3,7 +3,8 @@ import { Switch, Route } from "react-router-dom";
 import CheckTransform from "./components/CheckTransform/CheckTransform";
 import Navbar from "./components/Navbar";
 import "./App.css";
-import Main from "./pages/Main/Main";
+import Main from "./pages/Main";
+import AboutMePage from "./pages/About";
 import CubeRotate from "./components/RotateCube/RotateCube";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route path="/" exact component={Main} />
+        <Route path="/about" component={AboutMePage} />
         <Route path={"/check"}>
           <CheckTransform />
         </Route>

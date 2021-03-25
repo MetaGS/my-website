@@ -9,10 +9,11 @@ import Biography from "../../components/Biography";
 import Projects from "../../components/Projects";
 import Contacts from "../../components/Contacts/Contacts";
 import Footer from "../../components/Footer/Footer";
+import Works from "../../components/Works/Works";
 
 const Main = (props) => {
   return (
-    <div className="main-page">
+    <main className="main-page">
       <section className="main-page__block main-page__first-block">
         <Container className="main-page__container">
           <section className="main-page__right">
@@ -32,13 +33,17 @@ const Main = (props) => {
       <section className="main-page__block main-page__third-block">
         <Projects />
       </section>
+      <section className="main-page__block main-page__fourth-block">
+        <Works />
+      </section>
       <section className="main-page__block main-page__third-block">
         <Contacts />
       </section>
+
       <footer className="main-page__footer">
         <Footer />
       </footer>
-    </div>
+    </main>
   );
 };
 

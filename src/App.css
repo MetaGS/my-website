@@ -19,6 +19,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
 }
 
 code {
@@ -35,6 +36,7 @@ code {
   --grey: rgb(160, 155, 155);
   --white: white;
   --black: black;
+  --background-color: #010101;
   --stylish-color: #692ca4;
   --cube-color: #30312f;
 
