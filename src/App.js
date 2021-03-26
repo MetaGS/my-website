@@ -4,7 +4,7 @@ import CheckTransform from "./components/CheckTransform/CheckTransform";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Main from "./pages/Main";
-import AboutMePage from "./pages/About";
+import AboutMePage from "./pages/AboutMePage/AboutMePage";
 import CubeRotate from "./components/RotateCube/RotateCube";
 
 function App() {

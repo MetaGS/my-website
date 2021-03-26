@@ -1,0 +1,19 @@
+.about-page {
+  padding-top: var(--navbar-height);
+  color: var(--white);
+}
+
+.about-page__block {
+  overflow-x: hidden;
+}
+
+.about-page__block2 {
+}
+/* be careful with containers padding, there is paddings in Container.css as well, and thus should ne deleted,
+   Будь осторожен с выставлением паддинга, так как имеются дополнительные паддинги в Container.css
+   */
+.about-page__container {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  border-bottom: 1px solid rgb(156, 151, 151);
+}

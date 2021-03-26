@@ -21,7 +21,7 @@
 .main-page__first-block {
   height: 100vh;
 
-  background: linear-gradient(to top, #000000, rgba(0, 0, 0, 0)),
+  background: linear-gradient(to top, #000000 30%, rgba(0, 0, 0, 0) 80%),
     url("../../assets/main-page-bg.png");
   background-position: center;
   background-size: 1400px 600px;

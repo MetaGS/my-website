@@ -1,0 +1,12 @@
+.description-p {
+  background-color: var(--black);
+  color: var(--white);
+  text-align: justify;
+  display: flex;
+  align-items: center;
+  font-family: var(--roboto);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+}

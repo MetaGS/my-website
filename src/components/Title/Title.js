@@ -18,13 +18,21 @@ export const P = ({ className = "", children = null, text = null }) => {
   );
 };
 
-const Title = ({ children, className }) => {
+export const TitleWrapper = ({ className = "", children, ...props }) => {
+  return <div className={`title ${className}`}>{children}</div>;
+};
+
+const Title = ({ children = [0, 0], className }) => {
   return (
-    <div className={`title ${className}`}>
+    <TitleWrapper className={className}>
       <H1>{children[0]}</H1>
       <P>{children[1]}</P>
-    </div>
+    </TitleWrapper>
   );
+};
+
+export const MainTitle = ({ children, className = "" }) => {
+  return <h1 className={`main-title ${className}`}>{children}</h1>;
 };
 
 Title.propTypes = {
