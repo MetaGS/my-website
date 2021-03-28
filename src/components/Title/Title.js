@@ -32,7 +32,7 @@ const Title = ({ children = [0, 0], className }) => {
 };
 
 export const MainTitle = ({ children, className = "" }) => {
-  return <h1 className={`main-title ${className}`}>{children}</h1>;
+  return <h2 className={`main-title ${className}`}>{children}</h2>;
 };
 
 Title.propTypes = {

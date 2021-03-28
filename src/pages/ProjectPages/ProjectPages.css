@@ -1,0 +1,243 @@
+.project-pages {
+  padding-top: var(--navbar-height);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+.project-pages__container {
+  border-bottom: 1px solid rgb(156, 151, 151);
+}
+
+.project-pages__block {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.project-pages__block1 {
+  display: flex;
+}
+
+.project-pages__block1-left {
+  width: 60%;
+}
+.project-pages__block1-right {
+  width: 40%;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-pages__title {
+  text-align: right;
+  line-height: 1;
+}
+
+.project-pages__project-links {
+  width: calc(100% + 100px);
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  right: 0;
+  padding: 17px 0px;
+  right: 100px;
+  margin-top: 30px;
+  list-style: none;
+}
+
+.project-pages__project-link {
+  position: relative;
+  margin-left: 20px;
+}
+
+.project-pages__project-link-text {
+  width: fit-content;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  min-width: 130px;
+  margin-top: 12px;
+  padding: 10px 20px;
+}
+
+.project-pages__description {
+  margin-top: auto;
+}
+
+.project-pages__progress-wrapper {
+  margin-top: 30px;
+}
+
+.project-pages__subtitle-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-pages__subtitle {
+  font-size: 2rem;
+}
+.project-pages__percentage {
+  font-size: 1.6rem;
+}
+
+.project-pages__progress-bar {
+  height: 20px;
+  background-color: var(--white);
+  margin-top: 10px;
+}
+
+.project-pages__progress {
+  width: 1px;
+  height: 100%;
+  background-color: #6db078;
+}
+
+/* Steps block */
+
+.project-pages__block2 {
+  padding-top: 50px;
+}
+
+.project-pages__steps-wrapper {
+  width: 55%;
+  margin-left: auto;
+}
+
+.project-pages__steps {
+  list-style: none;
+  margin-right: -10000px;
+  padding-right: 10000px;
+  padding: 25px 0;
+  background-color: var(--white);
+}
+.project-pages__step {
+  display: flex;
+  padding: 7px 15px;
+  align-items: center;
+  max-width: 400px;
+  margin-top: 10px;
+  background-color: var(--black);
+  transform: translateX(-30px);
+}
+.project-pages__step-label {
+  display: flex;
+}
+
+.project-pages__input {
+  height: 0;
+  width: 0;
+}
+
+.project-pages__checkmark {
+  width: 20px;
+  display: block;
+  border: 1px solid var(--white);
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-pages__checkmark::before {
+  content: "";
+  display: none;
+  width: 10px;
+  height: 10px;
+  background-color: var(--white);
+}
+
+.project-pages__input:checked ~ .project-pages__checkmark::before {
+  display: block;
+}
+
+.project-pages__step-name {
+  margin-left: 20px;
+}
+
+/* Commentary Block */
+
+.project-pages__block3 {
+}
+
+.project-pages__commentary-wrapper {
+  --commentary-padding: 30px;
+  margin-left: -10000px;
+  background-color: var(--white);
+  padding: var(--commentary-padding) 0px 60px 10000px;
+}
+
+.commentary-title {
+  color: var(--black);
+  margin-bottom: 30px;
+}
+
+.commentary__inputs {
+  background-color: var(--black);
+  padding: 25px 10000px 25px 0;
+  margin-right: -10000px;
+}
+
+.commentary__input {
+  border: none;
+  padding: 4px 8px;
+}
+
+.commentary__input::placeholder {
+  font-family: var(--roboto);
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.commentary__input:focus {
+  outline-color: rgb(138, 138, 228);
+}
+
+.commentary__input-name {
+  height: 30px;
+}
+
+.commentary__input-text {
+  margin-top: 20px;
+  min-height: 80px;
+  max-height: 120px;
+  width: 100%;
+  resize: vertical;
+  display: block;
+}
+
+.commentary__input-submit {
+  background-color: var(--white);
+  margin: 0 30px 0 auto;
+  cursor: pointer;
+  display: block;
+  width: 200px;
+  text-transform: uppercase;
+}
+
+.commentary__comments {
+  margin-top: 80px;
+}
+
+.commentary__comment {
+  padding: 20px 20px 20px 0;
+  background-color: var(--black);
+  padding-left: 10000px;
+  margin-left: -10000px;
+  margin-right: var(--commentary-padding);
+}
+
+.commentary__comment-name {
+}
+
+.commentary__comment-date {
+  font-family: var(--roboto);
+  font-size: 1.6rem;
+  color: #676767;
+}
+
+.commentary__comment-text {
+  margin: 15px 0 0;
+  color: #bebdbd;
+}
