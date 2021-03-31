@@ -12,15 +12,14 @@ import App from "./App";
 // import reportWebVitals from './reportWebVitals';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBI5yZe0CNDsRrr2ad2cT-byAYaRUF3BTo",
-  authDomain: "store-56459.firebaseapp.com",
-  projectId: "store-56459",
-  storageBucket: "store-56459.appspot.com",
-  messagingSenderId: "716764755578",
-  appId: "1:716764755578:web:45423d764081d6e940adc3",
-  measurementId: "G-3HFJBL7QGH",
+  apiKey: "AIzaSyBqGgBh_iMX9hCAuXt-jZXshCbbd9YcTCQ",
+  authDomain: "my-website-50d3b.firebaseapp.com",
+  projectId: "my-website-50d3b",
+  storageBucket: "my-website-50d3b.appspot.com",
+  messagingSenderId: "651603994321",
+  appId: "1:651603994321:web:049b4bd5ab10f4ecaf07f0",
+  measurementId: "G-XPFW6ZSMVV",
 };
-
 let app = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 

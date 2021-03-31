@@ -7,6 +7,7 @@ import ProjectPhoto from "../../components/ProjectPhoto";
 import { MainTitle, P } from "../../components/Title";
 import DescriptionP from "../../components/DescriptionP";
 import Footer from "../../components/Footer/Footer";
+import WriteComment from "../../components/WriteComment";
 
 const projectLinks = [
   {
@@ -24,6 +25,8 @@ const projectLinks = [
 ];
 
 const ProjectPage = (props) => {
+  const id = "1234556688877777777";
+
   return (
     <main className="project-pages">
       <Container className="project-pages__container">
@@ -149,25 +152,7 @@ const ProjectPage = (props) => {
               <MainTitle className="project-pages__subtitle commentary-title">
                 Write comment
               </MainTitle>
-
-              <form className="commentary__inputs">
-                <input
-                  type="text"
-                  placeholder="Enter Name"
-                  className="commentary__input commentary__input-name"
-                />
-                <textarea
-                  type="text"
-                  placeholder="Enter Text"
-                  className="commentary__input commentary__input-text"
-                ></textarea>
-                <button
-                  type="submit"
-                  className="commentary__input commentary__input-submit"
-                >
-                  submit
-                </button>
-              </form>
+              <WriteComment projectId={id} />
             </div>
             <div className="commentary__comments">
               <MainTitle className="project-pages__subtitle commentary-title">
@@ -177,7 +162,7 @@ const ProjectPage = (props) => {
                 <DescriptionP className="commentary__comment-name">
                   Joldoshbek Sarygulov
                 </DescriptionP>
-                <date className="commentary__comment-date">12.02.2021</date>
+                <time className="commentary__comment-date">12.02.2021</time>
                 <P className="commentary__comment-text">
                   This is Commentary for the my website “commentary” block and
                   should be written first. lorem ipsum and then goes here.

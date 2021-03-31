@@ -1,0 +1,53 @@
+.write-comment__submit-state {
+  padding: 5px 10px;
+}
+
+.write-comment__inputs {
+  background-color: var(--black);
+  padding: 25px 10000px 25px 0;
+  margin-right: -10000px;
+  position: relative;
+}
+
+.write-comment__input {
+  border: none;
+  padding: 4px 8px;
+}
+
+.write-comment__input::placeholder {
+  font-family: var(--roboto);
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.write-comment__input:focus {
+  outline-color: rgb(138, 138, 228);
+}
+
+.write-comment__input-name {
+  height: 30px;
+}
+
+.write-comment__input-text {
+  margin-top: 20px;
+  min-height: 80px;
+  max-height: 120px;
+  width: 100%;
+  resize: vertical;
+  display: block;
+}
+
+.write-comment__input-submit {
+  background-color: var(--white);
+  margin: 0 30px 0 auto;
+  cursor: pointer;
+  display: block;
+  width: 200px;
+  text-transform: uppercase;
+}
+
+.write-comment__captcha {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

@@ -1,0 +1,40 @@
+.create-project {
+  color: var(--white);
+  --width: 300px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.create-project__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input-with-title {
+  margin-bottom: 20px;
+  max-width: var(--width);
+  width: 100%;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+
+.input-with-title__title {
+  font-size: 2rem;
+}
+
+.input-with-title__input {
+  height: 30px;
+  min-width: var(--width);
+}
+
+.input-with-title__textarea {
+  width: var(--width);
+  height: 100px;
+}
+
+.create-project__list-block {
+  margin-bottom: 20px;
+}

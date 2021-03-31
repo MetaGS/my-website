@@ -1,0 +1,4 @@
+.wrapper-with-footer {
+  padding-top: var(--navbar-height);
+  color: white;
+}

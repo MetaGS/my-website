@@ -173,49 +173,6 @@
   margin-bottom: 30px;
 }
 
-.commentary__inputs {
-  background-color: var(--black);
-  padding: 25px 10000px 25px 0;
-  margin-right: -10000px;
-}
-
-.commentary__input {
-  border: none;
-  padding: 4px 8px;
-}
-
-.commentary__input::placeholder {
-  font-family: var(--roboto);
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-
-.commentary__input:focus {
-  outline-color: rgb(138, 138, 228);
-}
-
-.commentary__input-name {
-  height: 30px;
-}
-
-.commentary__input-text {
-  margin-top: 20px;
-  min-height: 80px;
-  max-height: 120px;
-  width: 100%;
-  resize: vertical;
-  display: block;
-}
-
-.commentary__input-submit {
-  background-color: var(--white);
-  margin: 0 30px 0 auto;
-  cursor: pointer;
-  display: block;
-  width: 200px;
-  text-transform: uppercase;
-}
-
 .commentary__comments {
   margin-top: 80px;
 }

@@ -1,0 +1,38 @@
+.project-steps__wrapper {
+  margin: 0 0 30px;
+}
+
+.project-steps {
+  list-style: none;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+.project-step {
+  display: flex;
+}
+
+.project-steps__done {
+  margin-right: 10px;
+}
+
+.project-steps__delete {
+  height: 80%;
+  width: 20px;
+  margin-left: auto;
+  display: block;
+}
+
+.project-steps__new {
+  display: flex;
+  margin-top: 10px;
+}
+
+.project-steps__new-input,
+.project-steps__new-add {
+  display: inline-block;
+  height: 30px;
+}
+
+.project-steps__new-input {
+  flex-grow: 1;
+}

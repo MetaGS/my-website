@@ -56,6 +56,21 @@
   right: 380px;
   bottom: 0;
 }
+
+.contacts-block__submitted-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.contacts-block__submitted {
+  color: var(--white);
+  font-size: 2rem;
+}
+
 .contacts-block__form {
   width: 70%;
   margin: 0 auto 0;
@@ -136,6 +151,15 @@
   max-height: 400px;
 }
 
+.form__input-submit-wrapper {
+  position: relative;
+}
+
+.google-recaptcha {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 .btn {
   border: 1px solid var(--white);
   padding: 5px 20px;

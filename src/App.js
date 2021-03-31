@@ -7,6 +7,7 @@ import Main from "./pages/Main";
 import AboutMePage from "./pages/AboutMePage/";
 import CubeRotate from "./components/RotateCube/RotateCube";
 import ProjectPage from "./pages/ProjectPages";
+import CreateProject from "./pages/CreateProject";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" exact component={Main} />
         <Route path="/about" component={AboutMePage} />
         <Route path="/projects/project" component={ProjectPage} />
+        <Route path="/create-project" component={CreateProject} />
         <Route path={"/check"}>
           <CheckTransform />
         </Route>
