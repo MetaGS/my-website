@@ -23,6 +23,7 @@ export default ({ giveParentFiles, urls = [] }) => {
         ref={ref}
         accept=".jpeg, .jpg, .png, .svg"
         multiple
+        className="upload-photo__input"
         onChange={onPhotosChange}
       />
       {/* <button type="button" className="btn secondary sm" onClick={onUpload}>
@@ -37,7 +38,7 @@ export default ({ giveParentFiles, urls = [] }) => {
                 console.log("urlObject revoke");
                 URL.revokeObjectURL(photo);
               }}
-              className="photo-create-thumb"
+              className="upload-photo__thumb"
               alt=""
               key={photo.name}
             />

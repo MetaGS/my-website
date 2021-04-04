@@ -2,10 +2,10 @@ import { useState } from "react";
 
 export default function useInputList(
   updateOutsideSource = () => {},
-  prefix = ""
+  { prefix = "", initialItems = [] } = {}
 ) {
   let [item, setItem] = useState("");
-  let [items, setItems] = useState([]);
+  let [items, setItems] = useState(initialItems);
 
   const onAdd = (value = item) => (e) => {
     if (value.trim() !== "") {
@@ -15,6 +15,19 @@ export default function useInputList(
       updateOutsideSource(list);
       return list;
     }
+  };
+
+  const onDeleteItem = (index) => {
+    return (e) => {
+      const newItems = items.slice();
+      newItems.splice(index, 1);
+      setItems(newItems);
+    };
+  };
+
+  const clear = () => {
+    setItem("");
+    setItems(initialItems);
   };
 
   const backToItem = (index) => {
@@ -41,6 +54,8 @@ export default function useInputList(
       onClick: onAdd(),
       backToItem,
       items,
+      onDeleteItem,
+      clear,
     },
   ];
 }

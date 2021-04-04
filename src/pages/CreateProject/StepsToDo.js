@@ -7,33 +7,50 @@ import useFormInput from "../../hooks/useFormInput";
 const initialSteps = [
   {
     name: "Figma. Draw design",
+    done: false,
   },
   {
     name: "Detailed Plan",
+    done: false,
   },
   {
     name: "jsx and css",
+    done: false,
   },
   {
     name: "responsivness",
+    done: false,
   },
   {
     name: "react logic",
+    done: false,
   },
   {
     name: "firebase frontend logic",
+    done: false,
   },
   {
     name: "firebase firestore. rules.",
+    done: false,
   },
   {
     name: "firebase functions",
+    done: false,
   },
 ];
 
-const StepsToDo = (props) => {
-  const [steps, setSteps] = useState(initialSteps);
+const StepsToDo = ({ clear, updateParent = () => {} }) => {
+  const [steps, updateSteps] = useState(initialSteps);
   const newStep = useFormInput("");
+
+  useEffect(() => {
+    setSteps(initialSteps);
+  }, [clear]);
+
+  const setSteps = (newSteps) => {
+    updateSteps(newSteps);
+    updateParent(newSteps);
+  };
 
   const onNewStep = (e) => {
     setSteps([...steps, { name: newStep.value }]);
@@ -70,10 +87,19 @@ const StepsToDo = (props) => {
     e.dataTransfer.setData("index", e.target.dataset.index);
   };
 
+  const onDoneChange = (stepIndex) => (e) => {
+    const stepsCopy = steps.slice();
+    const step = steps[stepIndex];
+    const updatedStep = { ...step, done: !e.target.value };
+    stepsCopy[stepIndex] = updatedStep;
+    console.log(stepsCopy);
+    setSteps(stepsCopy);
+  };
+
   return (
     <div className="project-steps__wrapper">
       <ul className="project-steps">
-        {steps.map(({ name }, index) => {
+        {steps.map(({ name, done }, index) => {
           return (
             <li
               key={name}
@@ -84,7 +110,12 @@ const StepsToDo = (props) => {
               onDrop={onDrop}
               onDragStart={onDragStart}
             >
-              <input type="checkbox" className="project-steps__done" />
+              <input
+                type="checkbox"
+                className="project-steps__done"
+                value={done}
+                onChange={onDoneChange(index)}
+              />
               {name}
               <button
                 className="project-steps__delete"
