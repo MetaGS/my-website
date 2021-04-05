@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import firebase from "firebase/app";
 import PropTypes from "prop-types";
 import useFormInput from "../../hooks/useFormInput";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -8,7 +9,7 @@ import "./WriteComment.css";
 import { MainTitle } from "../Title";
 import DescriptionP from "../DescriptionP";
 const recaptchaKey = "6LfxOpIaAAAAAPakUxYx65NQ4pVLRUCFvFI425Ip";
-const WriteComment = (props) => {
+const WriteComment = ({ projectId }) => {
   const userName = useFormInput("");
   const userText = useFormInput("");
   const [showCaptcha, setShowCaptcha] = useState(false);
@@ -40,6 +41,8 @@ const WriteComment = (props) => {
         name: userName.value,
         text: userText.value,
         token,
+        projectId,
+        createdTime: firebase.firestore.FieldValue.serverTimestamp(),
       }).then((response) => {
         if (response.ok) {
           setSubmitState({

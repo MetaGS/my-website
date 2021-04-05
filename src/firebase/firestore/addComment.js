@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 
 const addComment = (commentObject) => {
   const collection = firebase.firestore().collection("comments");
-
+  console.log(commentObject);
   const response = collection
     .add(commentObject)
     .then((snapshot) => {

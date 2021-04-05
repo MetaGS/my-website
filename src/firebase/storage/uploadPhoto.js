@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
 
-const uploadPhoto = (directory, file, progressCallback = () => {}) => {
+const uploadPhoto = (directory, file, progressUpdater) => {
   const storageRef = firebase.storage().ref();
 
   const uploadDir = storageRef.child(`projects/${directory}/${file.name}`);
@@ -30,7 +30,11 @@ const uploadPhoto = (directory, file, progressCallback = () => {}) => {
         }
 
         //inform progress by caller
-        progressCallback(progress);
+        progressUpdater.setProgress((allProgresses) => {
+          const progressesCopy = allProgresses.slice();
+          progressesCopy[progressUpdater.index] = progress;
+          return progressesCopy;
+        });
       },
 
       //handle error
@@ -85,10 +89,10 @@ const consoleLog = (message, warning = true) => {
   );
 };
 
-export const uploadMultiplePhotos = (id, photos = []) => {
+export const uploadMultiplePhotos = (id, photos = [], setProgress) => {
   return Promise.all(
-    photos.map((photo) => {
-      return uploadPhoto(id, photo);
+    photos.map((photo, index) => {
+      return uploadPhoto(id, photo, { setProgress, index });
     })
   );
 };

@@ -18,6 +18,10 @@
 .projects__block {
 }
 
+.projects__link {
+  text-decoration: none;
+}
+
 .projects__project {
   position: relative;
   cursor: pointer;
@@ -33,6 +37,10 @@
   top: 40px;
   color: var(--white);
   text-transform: uppercase;
+}
+
+.project__title.active:hover {
+  text-decoration: underline;
 }
 
 .project__title-number,
@@ -51,6 +59,10 @@
   max-width: 100px;
 }
 
+.project__title-text.active:hover {
+  text-decoration: underline;
+}
+
 .project__photo {
   height: 50%;
   width: 100%;
@@ -58,6 +70,9 @@
   background-color: var(--cube-color);
 }
 
+.project__description.active:hover {
+  text-decoration: underline;
+}
 .project__description {
   padding: 20px;
   font-size: 1.5rem;

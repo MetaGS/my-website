@@ -33,7 +33,7 @@ const initialTags = ["react", "firebase", "figma", "html", "css", "javascript"];
 
 const CreateProject = (props) => {
   //state to send to firestore
-  const [photoFiles, setPhotoFiles] = useState([]);
+  const [photoFiles, updatePhotoFiles] = useState([]);
   const [isPrivate, setIsPrivate] = useState(false);
   const [steps, setSteps] = useState([]);
   const title = useFormInput("");
@@ -46,6 +46,12 @@ const CreateProject = (props) => {
   //state to control page
   const [uploading, setUploading] = useState(false);
   const [clearChildren, setClearChildren] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState([]);
+
+  const setPhotoFiles = (files) => {
+    updatePhotoFiles(files);
+    setUploadProgress(Array(files.length).fill(0));
+  };
 
   const clear = () => {
     //I need to clear after successful submit, or leave it as is it if not.
@@ -69,9 +75,11 @@ const CreateProject = (props) => {
       title: title.value,
       description: description.value,
       tags: tagList.items,
-      githubLink: githubLink.value,
-      onlineLink: onlineLink.value,
-      designLink: designLink.value,
+      links: {
+        github: githubLink.value,
+        "see online": onlineLink.value || null,
+        "see design": designLink.value || null,
+      },
       steps,
       photoUrls: [],
       isPrivate,
@@ -84,7 +92,7 @@ const CreateProject = (props) => {
       console.log(projectId);
 
       //upload photos to firebase storage
-      await uploadMultiplePhotos(projectId, photoFiles).then(
+      await uploadMultiplePhotos(projectId, photoFiles, setUploadProgress).then(
         async (photoUrls) => {
           console.log(
             "%cand then projectDoc updated with photoURls",
@@ -131,7 +139,7 @@ const CreateProject = (props) => {
               ></textarea>
             </Label>
 
-            <InputWithTitle type="url" {...githubLink} name="github">
+            <InputWithTitle type="url" {...githubLink} name="github" required>
               Enter github link
             </InputWithTitle>
 
@@ -149,6 +157,7 @@ const CreateProject = (props) => {
               <button
                 className="create-project__button btn"
                 onClick={tagList.onClick}
+                type="button"
               >
                 add
               </button>
@@ -194,7 +203,10 @@ const CreateProject = (props) => {
               Private Project?
             </InputWithTitle>
             <div className="create-project__upload-photo">
-              <HandlePhotoInput giveParentFiles={setPhotoFiles} />
+              <HandlePhotoInput
+                giveParentFiles={setPhotoFiles}
+                uploadProgress={uploadProgress}
+              />
             </div>
 
             <button className="btn create-project__submit-btn" type="submit">

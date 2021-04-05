@@ -8,7 +8,7 @@ const useFormInput = (initialState) => {
   };
 
   const clear = () => {
-    setValue("");
+    setValue(initialState);
   };
 
   return { value, onChange, clear };

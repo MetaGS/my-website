@@ -32,9 +32,9 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
         const newRadian = radian + permamentRadian;
         return newRadian;
       });
-    }, 7000);
+    }, 8000);
     return () => {
-      // clearInterval(threeSecondsInterval);
+      clearInterval(threeSecondsInterval);
     };
   }, []);
 
@@ -77,7 +77,7 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
             transform: `translateZ(${activeZ}px) translateX(${activeX}px)`,
           };
           return (
-            <div className="cube__rotate" style={{ zIndex: z }}>
+            <div className="cube__rotate" style={{ zIndex: z }} key={index}>
               <div
                 className={`cube-self cube-self${index}`}
                 onMouseOver={() => {
@@ -93,7 +93,7 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
                 }}
                 style={newPosition}
               >
-                {children[index]}
+                {children[index](active)}
               </div>
               {/* <div>
                 {newPositions.map(({ changeRadian, name }) => {

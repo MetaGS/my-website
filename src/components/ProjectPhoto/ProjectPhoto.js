@@ -68,7 +68,13 @@ const ProductPhoto = ({ photos = dummyPhotos }) => {
           >
             {photos?.map((photoUrl) => {
               return (
-                <img src={photoUrl} alt="product" data-photo-url={photoUrl} />
+                <img
+                  className="project-photo"
+                  src={photoUrl}
+                  alt="product"
+                  data-photo-url={photoUrl}
+                  key={photoUrl}
+                />
               );
             })}
           </Carousel>

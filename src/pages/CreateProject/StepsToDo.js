@@ -53,11 +53,14 @@ const StepsToDo = ({ clear, updateParent = () => {} }) => {
   };
 
   const onNewStep = (e) => {
+    e.preventDefault();
+
     setSteps([...steps, { name: newStep.value }]);
     newStep.clear();
   };
 
   const onDeleteStep = (index) => (e) => {
+    e.preventDefault();
     const newSteps = steps.slice();
     newSteps.splice(index, 1);
     setSteps(newSteps);
@@ -118,6 +121,7 @@ const StepsToDo = ({ clear, updateParent = () => {} }) => {
               />
               {name}
               <button
+                type="button"
                 className="project-steps__delete"
                 onClick={onDeleteStep(index)}
               >

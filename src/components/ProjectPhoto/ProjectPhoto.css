@@ -1,3 +1,10 @@
+.project-photo {
+  max-height: 400px;
+  height: auto;
+  object-position: top;
+  object-fit: cover;
+}
+
 .photo-thumb {
   display: inline-block;
   height: 5px;

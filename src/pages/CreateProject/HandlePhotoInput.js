@@ -1,19 +1,19 @@
 import firebase from "firebase/app";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Fragment } from "react";
 import React from "react";
 
 import uploadPhoto from "../../firebase/storage/uploadPhoto";
 import "./HandlePhotoInput.css";
 
-export default ({ giveParentFiles, urls = [] }) => {
+export default ({ giveParentFiles, urls = [], uploadProgress }) => {
   const ref = useRef();
 
   const [showPhotos, setShowPhotos] = useState([]);
 
   const onPhotosChange = (e) => {
-    const files = ref.current.files;
-    setShowPhotos([...files]);
-    giveParentFiles([...Array.from(files)]);
+    const files = Array.from(ref.current.files);
+    setShowPhotos(files);
+    giveParentFiles(files);
   };
 
   return (
@@ -29,19 +29,29 @@ export default ({ giveParentFiles, urls = [] }) => {
       {/* <button type="button" className="btn secondary sm" onClick={onUpload}>
         Upload Photo
       </button> */}
-      <div className="image-list">
-        {showPhotos.map((photo) => {
+      <div className="upload-photo__image-list">
+        {showPhotos.map((photo, index) => {
           return (
-            <img
-              src={URL.createObjectURL(photo)}
-              onLoad={() => {
-                console.log("urlObject revoke");
-                URL.revokeObjectURL(photo);
-              }}
-              className="upload-photo__thumb"
-              alt=""
-              key={photo.name}
-            />
+            <div key={photo.name} className="upload-photo__thumb-progress">
+              <img
+                src={URL.createObjectURL(photo)}
+                onLoad={() => {
+                  console.log("urlObject revoke");
+                  URL.revokeObjectURL(photo);
+                }}
+                className="upload-photo__thumb"
+                alt=""
+              />
+              <div className="upload-photo__progress">
+                <span
+                  className="upload-photo__progress-bar"
+                  style={{
+                    transform: `translateX(-${100 - uploadProgress[index]}%)`,
+                  }}
+                ></span>
+                progress {uploadProgress[index]}
+              </div>
+            </div>
           );
         })}
       </div>
