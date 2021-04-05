@@ -169,3 +169,40 @@
   color: var(--white);
   background-color: transparent;
 }
+
+@media (max-width: 850px) {
+  .contacts-block__container {
+    flex-direction: column;
+    padding-top: 70px;
+    padding-bottom: 80px;
+  }
+  .contacts-block__contacts-wrapper {
+    width: 100%;
+  }
+
+  .contacts-block__title {
+    text-align: center;
+  }
+  .contacts-block__contacts {
+  }
+  .contacts-block__contacts::after,
+  .contacts-block__contacts::before {
+    height: 0;
+  }
+
+  .contacts-block__contact {
+    margin-left: 50px;
+  }
+
+  .contacts-block__form {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 600px) {
+}
+
+@media (max-width: 300px) {
+  .contacts-block__contact {
+    margin-left: 0px;
+  }
+}

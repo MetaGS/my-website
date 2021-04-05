@@ -217,3 +217,28 @@
   margin: 15px 0 0;
   color: #bebdbd;
 }
+
+@media (max-width: 850px) {
+}
+@media (max-width: 600px) {
+  .project-pages__block1 {
+    flex-direction: column;
+  }
+
+  .project-pages__block {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .project-pages__block1-right,
+  .project-pages__block1-left {
+    width: 100%;
+  }
+
+  .project-pages__block1-right {
+    margin: 20px 0;
+  }
+  .project-pages__steps-wrapper {
+    width: 70%;
+  }
+}

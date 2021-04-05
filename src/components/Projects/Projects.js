@@ -20,7 +20,7 @@ const handleProjectNumber = (projectNumber) => {
 const Projects = ({ children, className = "", ...props }) => {
   const history = useHistory();
   let projects = useGetProjects();
-  projects = projects.slice().reverse();
+  // projects = projects.slice().reverse();
 
   // projects.sort((a, b) => {
   //   if (a.createdTime.seconds < b.createdTime.seconds) return -1;
@@ -38,34 +38,33 @@ const Projects = ({ children, className = "", ...props }) => {
             <RotateCube>
               {projects.map(({ title, photoUrls, description, id }, index) => {
                 const number = projectsData.length - index;
-
-                return (active) => {
-                  const activeClass = active ? "active" : "";
-                  return (
-                    <article
-                      className="projects__project project"
-                      key={id}
-                      onClick={(e) => {
-                        if (active) {
-                          history.push(`/projects/${id}`);
-                        }
-                      }}
-                    >
-                      <h3 className={`project__title`}>
-                        <span className="project__title-number">
-                          {handleProjectNumber(number)}
-                        </span>
-                        <span className={`project__title-text ${activeClass}`}>
-                          {title}
-                        </span>
-                      </h3>
-                      {/* <img className="project__photo" src={photo}></img> */}
-                      <p className={`project__description ${activeClass}`}>
-                        {limitText(description, 120)}
-                      </p>
-                    </article>
-                  );
-                };
+                const activeClass = "";
+                // return (active) => {
+                //   const activeClass = active ? "active" : "";
+                return (
+                  <article
+                    className="projects__project project"
+                    // onClick={(e) => {
+                    //   if (active) {
+                    //     history.push(`/projects/${id}`);
+                    //   }
+                    // }}
+                  >
+                    <h3 className={`project__title`}>
+                      <span className="project__title-number">
+                        {handleProjectNumber(number)}
+                      </span>
+                      <span className={`project__title-text ${activeClass}`}>
+                        {title}
+                      </span>
+                    </h3>
+                    {/* <img className="project__photo" src={photo}></img> */}
+                    <p className={`project__description ${activeClass}`}>
+                      {limitText(description, 120)}
+                    </p>
+                  </article>
+                );
+                // };
               })}
             </RotateCube>
           )}

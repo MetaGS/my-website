@@ -96,7 +96,7 @@ const Contacts = ({ className }) => {
     <section className={`contacts-block`}>
       <Container className="contacts-block__container">
         <article className="contacts-block__contacts-wrapper">
-          <Title>
+          <Title className="contacts-block__title">
             {[
               "Contact",
               "Contact Me Anytime, if you want professional projects",

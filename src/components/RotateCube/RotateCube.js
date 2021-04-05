@@ -18,7 +18,7 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
   const initialSpin = children.map((item, index) => {
     const itemRadian = permamentRadian * index;
     const changeRadian = genuineRadian - itemRadian;
-    return { x: 0, z: 0, itemRadian, changeRadian };
+    return { x: 0, z: 0, itemRadian, changeRadian, id: item.id };
   });
   const [spinner, setSpinner] = useState(initialSpin);
   const [canSpin, setCanSpin] = useState(true);
@@ -54,12 +54,12 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
 
   const calculateNewPositions = (radian) => {
     const newPositions = spinner.map(
-      ({ itemRadian, name, changeRadian }, index) => {
+      ({ itemRadian, name, changeRadian, id }, index) => {
         const positionRadian = radian + itemRadian;
         const newZ = checkAndChangePositionZ(positionRadian);
         const newX = checkAndChangePositionX(positionRadian);
         const active = newZ > -50;
-        return { x: newX, z: newZ, itemRadian, name, active, changeRadian };
+        return { x: newX, z: newZ, itemRadian, id, name, active, changeRadian };
       }
     );
     return newPositions;
@@ -70,22 +70,20 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
   return (
     <div className="rotate-cube-main">
       {newPositions.map(
-        ({ x, z, name, active, itemRadian, changeRadian }, index) => {
+        ({ x, z, id, active, itemRadian, changeRadian }, index) => {
           const activeX = active ? x + 100 : x;
           const activeZ = active ? 70 : z;
           const newPosition = {
             transform: `translateZ(${activeZ}px) translateX(${activeX}px)`,
           };
           return (
-            <div className="cube__rotate" style={{ zIndex: z }} key={index}>
+            <div className="cube__rotate" style={{ zIndex: z }} key={id}>
               <div
                 className={`cube-self cube-self${index}`}
                 onMouseOver={() => {
                   canSpin && setCanSpin(false);
-                  console.log("MouseOver");
                 }}
                 onMouseLeave={() => {
-                  console.log("MouseLeave");
                   setCanSpin(false);
                 }}
                 onClick={() => {
@@ -93,22 +91,8 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
                 }}
                 style={newPosition}
               >
-                {children[index](active)}
+                {children[index] /* (active) */}
               </div>
-              {/* <div>
-                {newPositions.map(({ changeRadian, name }) => {
-                  return (
-                    <button
-                      onClick={() => {
-                        console.log(`block ${name} clicked`);
-                        clickOnBlock(changeRadian);
-                      }}
-                    >
-                      {name}
-                    </button>
-                  );
-                })} 
-              </div>*/}
             </div>
           );
         }
