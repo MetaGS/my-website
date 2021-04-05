@@ -43,6 +43,7 @@ const CheckTransform = (props) => {
     if (index === activeBoxIndex) {
       return {
         transform: `rotateY(0deg) translateX(${0}px)`,
+        zIndex: 100,
       };
     }
 
