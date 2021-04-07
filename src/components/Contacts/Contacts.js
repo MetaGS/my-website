@@ -93,8 +93,8 @@ const Contacts = ({ className }) => {
   };
 
   return (
-    <section className={`contacts-block`}>
-      <Container className="contacts-block__container">
+    <section className={`contacts-block `}>
+      <Container className={`contacts-block__container ${className}`}>
         <article className="contacts-block__contacts-wrapper">
           <Title className="contacts-block__title">
             {[
@@ -105,10 +105,23 @@ const Contacts = ({ className }) => {
           <ul className="contacts-block__contacts">
             <li className="contacts-block__contact">Munar Alymov</li>
             <li className="contacts-block__contact">
-              marketdeal7788@gmail.com
+              <a
+                href="emailto:marketdeal7788@gmail.com"
+                className="contacts-block__link"
+                target="_blank"
+              >
+                marketdeal7788@gmail.com
+              </a>
             </li>
-            <li className="contacts-block__contact">+996990127854</li>
-            <li className="contacts-block__contact">+996555124717</li>
+            <li className="contacts-block__contact">
+              <a
+                target="_blank"
+                href="https://wa.me/+996555124717/?text=Hi,Munar! I got your number from your website."
+                className="contacts-block__link"
+              >
+                +996555124717 (WhatsApp)
+              </a>
+            </li>
             <li className="contacts-block__contact">
               Bishkek, Kyrgyz Republic
             </li>

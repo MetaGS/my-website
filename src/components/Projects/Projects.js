@@ -39,32 +39,37 @@ const Projects = ({ children, className = "", ...props }) => {
               {projects.map(({ title, photoUrls, description, id }, index) => {
                 const number = projectsData.length - index;
                 const activeClass = "";
-                // return (active) => {
-                //   const activeClass = active ? "active" : "";
-                return (
-                  <article
-                    className="projects__project project"
-                    // onClick={(e) => {
-                    //   if (active) {
-                    //     history.push(`/projects/${id}`);
-                    //   }
-                    // }}
-                  >
-                    <h3 className={`project__title`}>
-                      <span className="project__title-number">
-                        {handleProjectNumber(number)}
-                      </span>
-                      <span className={`project__title-text ${activeClass}`}>
-                        {title}
-                      </span>
-                    </h3>
-                    {/* <img className="project__photo" src={photo}></img> */}
-                    <p className={`project__description ${activeClass}`}>
-                      {limitText(description, 120)}
-                    </p>
-                  </article>
-                );
-                // };
+                return (active) => {
+                  const activeClass = active ? "active" : "";
+                  return {
+                    jsx: (
+                      <article
+                        className="projects__project project"
+                        onClick={(e) => {
+                          if (active) {
+                            history.push(`/projects/${id}`);
+                          }
+                        }}
+                      >
+                        <h3 className={`project__title`}>
+                          <span className="project__title-number">
+                            {handleProjectNumber(number)}
+                          </span>
+                          <span
+                            className={`project__title-text ${activeClass}`}
+                          >
+                            {title}
+                          </span>
+                        </h3>
+                        {/* <img className="project__photo" src={photo}></img> */}
+                        <p className={`project__description ${activeClass}`}>
+                          {limitText(description, 120)}
+                        </p>
+                      </article>
+                    ),
+                    id,
+                  };
+                };
               })}
             </RotateCube>
           )}

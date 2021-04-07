@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Element as ScrollElement } from "react-scroll";
 
 import "./Main.css";
 import Container from "../../components/Container";
@@ -33,12 +34,18 @@ const Main = (props) => {
       <section className="main-page__block main-page__third-block">
         <Projects />
       </section>
-      <section className="main-page__block main-page__fourth-block">
+      <ScrollElement
+        name="main-works"
+        className="main-page__block main-page__fourth-block"
+      >
         <Works />
-      </section>
-      <section className="main-page__block main-page__third-block">
+      </ScrollElement>
+      <ScrollElement
+        name="main-contacts"
+        className="main-page__block main-page__third-block"
+      >
         <Contacts />
-      </section>
+      </ScrollElement>
 
       <footer className="main-page__footer">
         <Footer />

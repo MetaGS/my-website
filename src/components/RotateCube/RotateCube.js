@@ -13,7 +13,7 @@ const itemsToSpin = [
 const genuineRadian = 6.28319;
 
 const RotateCube = ({ children = itemsToSpin, className = "" }) => {
-  const permamentRadian = 6.28319 / children.length;
+  const permamentRadian = genuineRadian / children.length;
 
   const initialSpin = children.map((item, index) => {
     const itemRadian = permamentRadian * index;
@@ -21,26 +21,28 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
     return { x: 0, z: 0, itemRadian, changeRadian, id: item.id };
   });
   const [spinner, setSpinner] = useState(initialSpin);
-  const [canSpin, setCanSpin] = useState(true);
+  // const [canSpin, setCanSpin] = useState(true);
 
   const [radian, setRadian] = useState(0);
 
   useEffect(() => {
     setRadian(radian + permamentRadian);
-    const threeSecondsInterval = setInterval(() => {
-      setRadian((radian) => {
-        const newRadian = radian + permamentRadian;
-        return newRadian;
-      });
-    }, 8000);
+    // const threeSecondsInterval = setInterval(() => {
+    //   setRadian((radian) => {
+    //     const newRadian = radian + permamentRadian;
+    //     return newRadian;
+    //   });
+    // }, 8000);
     return () => {
-      clearInterval(threeSecondsInterval);
+      // clearInterval(threeSecondsInterval);
     };
   }, []);
 
   const clickOnBlock = (changeRadian) => {
-    setCanSpin(false);
-    setRadian(changeRadian);
+    // setCanSpin(false);
+    setRadian((prevRad) => {
+      return changeRadian;
+    });
   };
 
   const checkAndChangePositionZ = (radian) => {
@@ -80,18 +82,19 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
             <div className="cube__rotate" style={{ zIndex: z }} key={id}>
               <div
                 className={`cube-self cube-self${index}`}
-                onMouseOver={() => {
-                  canSpin && setCanSpin(false);
-                }}
-                onMouseLeave={() => {
-                  setCanSpin(false);
-                }}
+                // onMouseOver={() => {
+                //   // canSpin && setCanSpin(false);
+                // }}
+                // onMouseLeave={() => {
+                //   // setCanSpin(false);
+                // }}
                 onClick={() => {
+                  console.log(changeRadian);
                   clickOnBlock(changeRadian);
                 }}
                 style={newPosition}
               >
-                {children[index] /* (active) */}
+                {children[index](active).jsx}
               </div>
             </div>
           );

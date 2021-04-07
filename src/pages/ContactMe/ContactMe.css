@@ -1,0 +1,6 @@
+.contact-me__wrapper {
+  padding-top: var(--navbar-height);
+}
+.contact-me__contact {
+  min-height: 82vh;
+}

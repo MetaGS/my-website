@@ -8,6 +8,7 @@ import AboutMePage from "./pages/AboutMePage/";
 import CubeRotate from "./components/RotateCube/RotateCube";
 import ProjectPage from "./pages/ProjectPage";
 import CreateProject from "./pages/CreateProject";
+import ContactMe from "./pages/ContactMe";
 
 function App() {
   return (
@@ -19,12 +20,13 @@ function App() {
         <Route path="/projects/project" component={ProjectPage} />
         <Route path="/projects/:id" component={ProjectPage} />
         <Route path="/create-project" component={CreateProject} />
-        <Route path={"/check"}>
+        {/* <Route path="/contact-me" component={ContactMe} /> */}
+        {/* <Route path={"/check"}>
           <CheckTransform />
-        </Route>
-        <Route path={"/rotate"}>
+        </Route> */}
+        {/* <Route path={"/rotate"}>
           <CubeRotate />
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   );

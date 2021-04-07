@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import PropTypes from "prop-types";
 import star from "../../assets/star.svg";
 
@@ -27,19 +29,35 @@ const Biography = (props) => {
           </Title>
           <ul className="biography__links">
             <li className="biography__link">
-              <h4 className="biography__link-title">About</h4>
-              <img src={star} alt="" className="biography__link-icon" />
-              <p className="biography__link-description">My Biography</p>
+              <NavLink className="biography__navlink" to="/about">
+                <h4 className="biography__link-title">About</h4>
+                <img src={star} alt="" className="biography__link-icon" />
+                <p className="biography__link-description">My Biography</p>
+              </NavLink>
             </li>
             <li className="biography__link">
-              <h4 className="biography__link-title">WORK</h4>
-              <img src={star} alt="" />
-              <p className="biography__link-description">View Case Studies</p>
+              <ScrollLink
+                className="biography__navlink"
+                to="main-works"
+                smooth={true}
+              >
+                <h4 className="biography__link-title">WORK</h4>
+                <img src={star} alt="" />
+                <p className="biography__link-description">View Case Studies</p>
+              </ScrollLink>
             </li>
             <li className="biography__link">
-              <h4 className="biography__link-title">CONTACT</h4>
-              <img src={star} alt="" />
-              <p className="biography__link-description">Let's Get In Touch</p>
+              <ScrollLink
+                className="biography__link"
+                to="main-contacts"
+                smooth={true}
+              >
+                <h4 className="biography__link-title">CONTACT</h4>
+                <img src={star} alt="" />
+                <p className="biography__link-description">
+                  Let's Get In Touch
+                </p>
+              </ScrollLink>
             </li>
           </ul>
         </nav>

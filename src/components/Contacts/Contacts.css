@@ -32,6 +32,17 @@
   margin-top: 10px;
 }
 
+.contacts-block__link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contacts-block__link:hover,
+.contacts-block__link:focus {
+  text-decoration: underline;
+}
+
 .contacts-block__contact:first-child {
   margin-bottom: 20px;
 }

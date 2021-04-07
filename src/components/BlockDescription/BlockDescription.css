@@ -59,7 +59,19 @@
   right: 0;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 750px) {
+  .block-desc {
+    font-size: 0.7rem;
+    width: 5em;
+  }
+  .block-desc__decor5 {
+    width: 1em;
+    bottom: 15em;
+  }
+
+  .block-desc__decor3 {
+    width: 1.5em;
+  }
 }
 @media (max-width: 600px) {
   .block-desc {
@@ -70,8 +82,11 @@
     width: 1em;
     bottom: 15em;
   }
-
+  .block-desc__decor4 {
+    display: none;
+  }
   .block-desc__decor3 {
     width: 1.5em;
+    display: none;
   }
 }

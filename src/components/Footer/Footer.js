@@ -9,13 +9,27 @@ const Footer = (props) => {
     <Container className="footer__container">
       <ul className="social-links">
         <li className="social-link">
-          <FaWhatsappSquare />
+          <a
+            target="_blank"
+            href="https://wa.me/+996555124717/?text=Hi,Munar! I got your number from your website."
+            className="footer__link"
+          >
+            <FaWhatsappSquare />
+          </a>
         </li>
         <li className="social-link">
-          <FaTelegram />
+          <a href="https://t.me/meta_gs" className="footer__link">
+            <FaTelegram />
+          </a>
         </li>
         <li className="social-link">
-          <FaLinkedin />
+          <a
+            href="https://linkedin.com/in/munar-alymov-b49184119"
+            className="footer__link"
+            target="_blank"
+          >
+            <FaLinkedin />
+          </a>
         </li>
       </ul>
     </Container>
