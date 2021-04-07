@@ -1,4 +1,10 @@
-import { SIGN_OUT, SIGN_IN, NORMAL_SEARCH, WIDE_SEARCH } from "./types";
+import {
+  SIGN_OUT,
+  SIGN_IN,
+  NORMAL_SEARCH,
+  WIDE_SEARCH,
+  IN_VIEW_CHANGE,
+} from "./types";
 
 export default (state, action) => {
   switch (action.type) {
@@ -11,6 +17,9 @@ export default (state, action) => {
       return { ...state, user: action.payload, userSignedIn: true };
     case SIGN_OUT:
       return { ...state, user: null, userSignedIn: false };
+
+    case IN_VIEW_CHANGE:
+      return { ...state, inView: action.payload };
 
     default:
       return state;

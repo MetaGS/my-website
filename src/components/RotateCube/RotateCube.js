@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swipe from "react-easy-swipe";
 import PropTypes from "prop-types";
 import "./RotateCube.css";
 
@@ -14,6 +15,8 @@ const genuineRadian = 6.28319;
 
 const RotateCube = ({ children = itemsToSpin, className = "" }) => {
   const permamentRadian = genuineRadian / children.length;
+  const [radian, setRadian] = useState(0);
+  const spinRadian = radian + permamentRadian;
 
   const initialSpin = children.map((item, index) => {
     const itemRadian = permamentRadian * index;
@@ -22,8 +25,6 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
   });
   const [spinner, setSpinner] = useState(initialSpin);
   // const [canSpin, setCanSpin] = useState(true);
-
-  const [radian, setRadian] = useState(0);
 
   useEffect(() => {
     setRadian(radian + permamentRadian);
@@ -69,8 +70,20 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
 
   const newPositions = calculateNewPositions(radian);
 
+  const swipeLeft = () => {
+    setRadian(radian - permamentRadian);
+  };
+
+  const swipeRight = () => {
+    setRadian(spinRadian);
+  };
+
   return (
-    <div className="rotate-cube-main">
+    <Swipe
+      onSwipeLeft={swipeLeft}
+      onSwipeRight={swipeRight}
+      className="rotate-cube-main"
+    >
       {newPositions.map(
         ({ x, z, id, active, itemRadian, changeRadian }, index) => {
           const activeX = active ? x + 100 : x;
@@ -100,7 +113,7 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
           );
         }
       )}
-    </div>
+    </Swipe>
   );
 };
 

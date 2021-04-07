@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Swipe from "react-easy-swipe";
 import PropTypes from "prop-types";
 import "./CheckTransform.css";
 
@@ -67,45 +68,63 @@ const CheckTransform = (props) => {
   //     });
   //   };
 
-  return (
-    <div className="check-transform__wrapper" ref={refContainer}>
-      {transformStyles.map((cubeTransform, index) => {
-        const {
-          photo,
-          title,
-          description,
-          alt,
-          subtitle,
-          photoClassName,
-        } = blocks[index];
+  const swipeLeft = () => {
+    if (activeBoxIndex < transforms.length - 1) {
+      setActiveBoxIndex(activeBoxIndex + 1);
+    }
+  };
 
-        return (
-          <div
-            className={`cube cube${index}`}
-            style={{ zIndex: cubeTransform.zIndex ?? "auto" }}
-          >
+  const swipeRight = () => {
+    if (activeBoxIndex > 0) {
+      setActiveBoxIndex(activeBoxIndex - 1);
+    }
+  };
+
+  return (
+    <Swipe
+      className="check-transform__swipe"
+      onSwipeRight={swipeRight}
+      onSwipeLeft={swipeLeft}
+    >
+      <div className="check-transform__wrapper" ref={refContainer}>
+        {transformStyles.map((cubeTransform, index) => {
+          const {
+            photo,
+            title,
+            description,
+            alt,
+            subtitle,
+            photoClassName,
+          } = blocks[index];
+
+          return (
             <div
-              className={`cube__face face${index}`}
-              onClick={() => {
-                onBoxClick(index);
-              }}
-              style={cubeTransform}
+              className={`cube cube${index}`}
+              style={{ zIndex: cubeTransform.zIndex ?? "auto" }}
             >
-              <article className="my-feature">
-                <img
-                  src={photo}
-                  alt={alt}
-                  className={`my-feature__photo my-feature__${photoClassName}`}
-                />
-                <h3 className="my-feature__title">{title}</h3>
-                <span className="my-feature__subtitle">{subtitle}</span>
-                <p className="my-feature__description">{description}</p>
-              </article>
+              <div
+                className={`cube__face face${index}`}
+                onClick={() => {
+                  onBoxClick(index);
+                }}
+                style={cubeTransform}
+              >
+                <article className="my-feature">
+                  <img
+                    src={photo}
+                    alt={alt}
+                    className={`my-feature__photo my-feature__${photoClassName}`}
+                  />
+                  <h3 className="my-feature__title">{title}</h3>
+                  <span className="my-feature__subtitle">{subtitle}</span>
+                  <p className="my-feature__description">{description}</p>
+                </article>
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </Swipe>
   );
 };
 

@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Element as ScrollElement } from "react-scroll";
+import { InView } from "react-intersection-observer";
+import useStorage from "../../storage";
 
 import "./Main.css";
 import Container from "../../components/Container";
@@ -11,8 +13,16 @@ import Projects from "../../components/Projects";
 import Contacts from "../../components/Contacts/Contacts";
 import Footer from "../../components/Footer/Footer";
 import Works from "../../components/Works/Works";
+import { inViewChange } from "../../storage/actions";
 
 const Main = (props) => {
+  const [state, dispatch] = useStorage();
+
+  const contactsInViewChange = (inView, entry) => {
+    const contactsInView = inView ? "contacts" : "";
+    dispatch(inViewChange(contactsInView));
+  };
+
   return (
     <main className="main-page">
       <section className="main-page__block main-page__first-block">
@@ -44,7 +54,9 @@ const Main = (props) => {
         name="main-contacts"
         className="main-page__block main-page__third-block"
       >
-        <Contacts />
+        <InView onChange={contactsInViewChange}>
+          <Contacts />
+        </InView>
       </ScrollElement>
 
       <footer className="main-page__footer">

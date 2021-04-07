@@ -3,6 +3,7 @@ import { scroller } from "react-scroll";
 import { useHistory, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ReactComponent as Logo } from "../../assets/gorilla.svg";
+import useStorage from "../../storage";
 
 import "./Navbar.css";
 import Container from "../Container";
@@ -13,8 +14,7 @@ const scrollLinks = ["#main-contacts"];
 const Navbar = (props) => {
   const history = useHistory();
   const location = useLocation();
-  console.log(location);
-  console.log(scrollLinks.includes(location.hash));
+  const [{ inView }, dispatch] = useStorage();
 
   const [sidebar, setSidebar] = useState(false);
   const [windowScrollY, setWindowScrollY] = useState(window.scrollY);
@@ -32,10 +32,13 @@ const Navbar = (props) => {
 
   useEffect(() => {
     if (scrollLinks.includes(location.hash)) {
-      console.log("it runs");
       scroller.scrollTo("main-contacts", {
         smooth: true,
       });
+      // clear hash, so you go to other page, and go back it did not scroll to
+      // contacts again
+
+      history.push(location.pathname);
     }
   }, [location.pathname]);
 
@@ -63,7 +66,8 @@ const Navbar = (props) => {
 
   const navbarBlack = windowScrollY > 50 ? "navbar--black" : "";
   const sidebarOpenClass = sidebar ? "open" : "";
-  const [activeLinkClassName, setActiveLinkClassName] = useState("");
+  const contactsActiveLink =
+    inView === "contacts" ? "navbar__navlink--active" : "";
 
   return (
     <nav className={`navbar ${navbarBlack}`}>
@@ -111,7 +115,7 @@ const Navbar = (props) => {
             </li>
             <li className="navbar__link">
               <a
-                className={`navbar__navlink ${activeLinkClassName}`}
+                className={`navbar__navlink ${contactsActiveLink}`}
                 onClick={onContactClick}
                 to="/contact-me"
                 activeClassName="navbar__navlink--active"

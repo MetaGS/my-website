@@ -6,6 +6,7 @@ export const ContextINNER = createContext([]);
 const initialState = {
   user: null,
   userSignedIn: false,
+  inView: "",
 };
 
 export const StorageInitialize = ({ children }) => {
