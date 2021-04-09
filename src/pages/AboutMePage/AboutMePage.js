@@ -16,9 +16,7 @@ const AboutMePage = (props) => {
       <ScrollToTop />
       <section className="about-page__block about-page__block1">
         <Container className="about-page__container">
-          <MainTitle className="about-page__section-title">
-            About msasdae{" "}
-          </MainTitle>
+          <MainTitle className="about-page__section-title">About me</MainTitle>
           <Skills />
         </Container>
       </section>

@@ -15,7 +15,8 @@ const genuineRadian = 6.28319;
 
 const RotateCube = ({ children = itemsToSpin, className = "" }) => {
   const permamentRadian = genuineRadian / children.length;
-  const [radian, setRadian] = useState(0);
+  const [radian, updateRadian] = useState(0);
+
   const spinRadian = radian + permamentRadian;
 
   const initialSpin = children.map((item, index) => {
@@ -24,7 +25,7 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
     return { x: 0, z: 0, itemRadian, changeRadian, id: item.id };
   });
   const [spinner, setSpinner] = useState(initialSpin);
-  // const [canSpin, setCanSpin] = useState(true);
+  const [canSpin, setCanSpin] = useState(true);
 
   useEffect(() => {
     setRadian(radian + permamentRadian);
@@ -39,6 +40,20 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
     };
   }, []);
 
+  const setRadian = (newRadian) => {
+    if (canSpin) {
+      freezeSpin();
+      updateRadian(newRadian);
+    }
+  };
+
+  const freezeSpin = () => {
+    setCanSpin(false);
+    setTimeout(() => {
+      setCanSpin(true);
+    }, 1300);
+  };
+
   const clickOnBlock = (changeRadian) => {
     // setCanSpin(false);
     setRadian((prevRad) => {
@@ -48,11 +63,11 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
 
   const checkAndChangePositionZ = (radian) => {
     const cos = Math.cos(radian) * 1000 - 1000;
-    return cos.toFixed();
+    return Number(cos.toFixed());
   };
   const checkAndChangePositionX = (radian) => {
     const sin = Math.sin(radian) * 500;
-    return sin.toFixed();
+    return Number(sin.toFixed());
   };
 
   const calculateNewPositions = (radian) => {
@@ -87,6 +102,13 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
       {newPositions.map(
         ({ x, z, id, active, itemRadian, changeRadian }, index) => {
           const activeX = active ? x + 100 : x;
+          if (active) {
+            console.log(`
+          X: ${x},
+          activeX: ${activeX},
+          X+100: ${x + 100},
+          `);
+          }
           const activeZ = active ? 70 : z;
           const newPosition = {
             transform: `translateZ(${activeZ}px) translateX(${activeX}px)`,
@@ -95,6 +117,7 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
             <div className="cube__rotate" style={{ zIndex: z }} key={id}>
               <div
                 className={`cube-self cube-self${index}`}
+                style={newPosition}
                 // onMouseOver={() => {
                 //   // canSpin && setCanSpin(false);
                 // }}
@@ -105,7 +128,6 @@ const RotateCube = ({ children = itemsToSpin, className = "" }) => {
                   console.log(changeRadian);
                   clickOnBlock(changeRadian);
                 }}
-                style={newPosition}
               >
                 {children[index](active).jsx}
               </div>

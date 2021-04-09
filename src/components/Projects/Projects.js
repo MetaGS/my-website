@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { limitText } from "../../utils/limitText";
 import { Link } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 
 import RotateCube from "../RotateCube/RotateCube";
 import BlockDescription from "../BlockDescription";
@@ -18,9 +19,10 @@ const handleProjectNumber = (projectNumber) => {
 };
 
 const Projects = ({ children, className = "", ...props }) => {
+  const { ref, inView } = useInView();
   const history = useHistory();
   let projects = useGetProjects();
-  // projects = projects.slice().reverse();
+  projects = projects.slice().reverse();
 
   // projects.sort((a, b) => {
   //   if (a.createdTime.seconds < b.createdTime.seconds) return -1;
@@ -30,6 +32,12 @@ const Projects = ({ children, className = "", ...props }) => {
   return (
     <section className={`projects ${className}`}>
       <Container className="projects__container">
+        <div
+          ref={ref}
+          className={`projects__swipe-tip ${inView ? "in-view" : ""}`}
+        >
+          swipe
+        </div>
         <div className="projects__description">
           <BlockDescription />
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Element as ScrollElement } from "react-scroll";
 import { InView } from "react-intersection-observer";
@@ -17,6 +17,12 @@ import { inViewChange } from "../../storage/actions";
 
 const Main = (props) => {
   const [state, dispatch] = useStorage();
+
+  useEffect(() => {
+    return () => {
+      dispatch(inViewChange(""));
+    };
+  }, []);
 
   const contactsInViewChange = (inView, entry) => {
     const contactsInView = inView ? "contacts" : "";

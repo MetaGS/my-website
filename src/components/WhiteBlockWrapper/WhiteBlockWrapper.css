@@ -3,7 +3,7 @@
   color: var(--black);
   width: 40%;
   box-sizing: content-box;
-  min-width: 350px;
+  min-width: 280px;
   padding-top: 20px;
   padding-bottom: 20px;
 }

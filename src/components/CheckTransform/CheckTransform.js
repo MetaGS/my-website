@@ -44,6 +44,8 @@ const CheckTransform = (props) => {
     if (index === activeBoxIndex) {
       return {
         transform: `rotateY(0deg) translateX(${0}px)`,
+        transition: "transform ease 0.5s 2s;",
+        active: true,
         zIndex: 100,
       };
     }
@@ -85,9 +87,20 @@ const CheckTransform = (props) => {
       className="check-transform__swipe"
       onSwipeRight={swipeRight}
       onSwipeLeft={swipeLeft}
+      onSwipeMove={() => {
+        // return true;
+      }}
+      tolerance={50}
+      onSwipeUp={() => {
+        return false;
+      }}
+      onSwipeDown={() => {
+        return false;
+      }}
     >
       <div className="check-transform__wrapper" ref={refContainer}>
         {transformStyles.map((cubeTransform, index) => {
+          //get data to fill content by children, by the same index
           const {
             photo,
             title,
@@ -97,13 +110,16 @@ const CheckTransform = (props) => {
             photoClassName,
           } = blocks[index];
 
+          //set active class for active cubeTransform
+          const activeClass = cubeTransform.active ? "cube__face--active" : "";
+
           return (
             <div
               className={`cube cube${index}`}
               style={{ zIndex: cubeTransform.zIndex ?? "auto" }}
             >
               <div
-                className={`cube__face face${index}`}
+                className={`cube__face face${index} ${activeClass}`}
                 onClick={() => {
                   onBoxClick(index);
                 }}

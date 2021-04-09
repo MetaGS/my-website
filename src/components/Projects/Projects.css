@@ -8,6 +8,87 @@
   padding: 90px 0 70px;
   border-bottom: 1px solid rgb(156, 151, 151);
 }
+
+.projects__swipe-tip {
+  display: none;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  z-index: 11;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-50%);
+  transition: opacity 0.2s ease-out;
+  --dimension: 7vw;
+  --width: 80vw;
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(192 192 192 / 88%),
+    transparent
+  );
+  border-radius: var(--dimension);
+  width: var(--width);
+  height: var(--dimension);
+  color: var(--white);
+  font-size: 2.5rem;
+  font-family: var(--oswald);
+  vertical-align: center;
+  text-align: center;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects__swipe-tip.in-view {
+  animation-name: hide-tip;
+  animation-duration: 3s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hide-tip {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.projects__swipe-tip::after {
+  content: "";
+  position: absolute;
+  height: var(--dimension);
+  width: var(--dimension);
+  left: 0;
+  border-radius: 50%;
+  background-color: rgba(168, 163, 163, 0.8);
+  animation-name: swipe-tip;
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes swipe-tip {
+  from {
+    transform: translateX(0);
+  }
+
+  /* 50% {
+    transform: translateX(+20vw);
+  } */
+
+  to {
+    transform: translateX(calc(var(--width) - var(--dimension)));
+  }
+}
+
 .projects__description {
   position: absolute;
   left: 0;
@@ -82,4 +163,15 @@
   color: var(--white);
   bottom: 10px;
   left: 0;
+}
+
+@media (max-width: 850px) {
+}
+
+@media (max-width: 768px) {
+  .projects__swipe-tip {
+    display: flex;
+  }
+}
+@media (max-width: 600px) {
 }

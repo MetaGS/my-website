@@ -21,6 +21,7 @@
   height: 300px;
   /* transform-style: preserve-3d; */
   perspective: 600px;
+  transition: z-index 0.7s cubic-bezier(0, 1, 1, 0);
 }
 
 .cube0 {
@@ -38,7 +39,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform ease 0.5s;
+  transition: transform ease-out 0.5s;
+}
+
+.cube__face--active {
+  transition: transform ease-in 0.5s 0.2s;
 }
 
 .face0 {
