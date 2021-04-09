@@ -65,23 +65,26 @@ const Biography = (props) => {
           <header>
             <p className="biography__about-text">
               My name is Munarbek. My surname is Alymov. I was born in
-              Kyrgyzstan. I live in a small town Osh in the . My address is Flat
-              116, 19, Pionerskaya Street. My phone number is 41-5-81. I am a
-              pupil.
+              Kyrgyzstan. I am a web developer. More than 4 years of experience.
             </p>
             <p className="biography__about-text">
-              I go to school Number 1. I am a good pupil. I do well in all
-              subjects. They say that I am a hard-working person. To tell the
-              truth, all school subjects come easy to me but sometimes I have to
-              work long hours, for example, to do lessons in Physics or
-              Chemistry, to write a composition
+              I like challenges. It makes you better developer and improves
+              skills. Challenges make you think critically, find alternative
+              ways of solution. In future I plan to dive to Three.js world.
+              Where will be a lot of new, and make me better programmer.
             </p>
             <p className="biography__about-text">
-              or to learn a poem by heart. But my favourite subject is English.
-              I spend a lot of time on it reading books, doing tests etc. Maybe
-              English and learning it will be a part of my future carreer. I
-              like reading. I think comics and detective stories are much easier
-              to read but I prefer to read novels - historical or
+              I like read docs. In docs you can find subtle parts which is not
+              covered in most tutorials. I spent about 3-4 to read docs. Most of
+              the time a spent in mdn, javascript.info, w3schools and in other
+              targeted libraries as react-spring and others...
+            </p>
+            <p className="biography__about-text">
+              I prefer quality over speed. For it is better to make solid app,
+              be in good relationship with customer and have long term
+              cooperation, than destroying my reputation by delivering
+              unfinished apps. Anyway we can not totally prevent bugs, so I try
+              to maintain apps after delivery as well.
             </p>
           </header>
         </article>

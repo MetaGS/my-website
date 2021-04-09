@@ -108,6 +108,7 @@ const CheckTransform = (props) => {
             alt,
             subtitle,
             photoClassName,
+            children,
           } = blocks[index];
 
           //set active class for active cubeTransform
@@ -126,11 +127,15 @@ const CheckTransform = (props) => {
                 style={cubeTransform}
               >
                 <article className="my-feature">
-                  <img
-                    src={photo}
-                    alt={alt}
-                    className={`my-feature__photo my-feature__${photoClassName}`}
-                  />
+                  {!!!children ? (
+                    <img
+                      src={photo}
+                      alt={alt}
+                      className={`my-feature__photo my-feature__${photoClassName}`}
+                    />
+                  ) : (
+                    children
+                  )}
                   <h3 className="my-feature__title">{title}</h3>
                   <span className="my-feature__subtitle">{subtitle}</span>
                   <p className="my-feature__description">{description}</p>

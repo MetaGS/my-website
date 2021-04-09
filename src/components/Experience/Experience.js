@@ -9,29 +9,28 @@ import DescriptionP from "../DescriptionP";
 const experienceData = [
   {
     text:
-      "Recommendation from Dark Side Laboratories specialist: for better results use our protein between",
+      "Turan Group companies app. First Big app. MySQL interaction with express.js. HTTP headers",
     reverse: true,
   },
   {
     text:
-      "Recommendation from Dark Side Laboratories specialist: for better results use our protein between",
+      "T-Fit. e-commerce app. Have built the backend and frontend. Backend built with Firebase.",
     reverse: false,
   },
   {
     text:
-      "Recommendation from Dark Side Laboratories specialist: for better results use our protein between",
+      "My Cashier app. Helped to build to startup the frontend to scan QR codes by mobile devices.",
     reverse: true,
   },
   {
     text:
-      "Recommendation from Dark Side Laboratories specialist: for better results use our protein between",
+      "Canvas. I have experience in building games (2D) in canvas context. ",
     reverse: false,
   },
 ];
 
 const Experience = (props) => {
   const width = useWindowWidth();
-  console.log(width);
 
   return (
     <div className="experience__wrapper">
