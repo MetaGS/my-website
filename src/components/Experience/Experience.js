@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import useWindowWidth from "../../hooks/useWindowWidth";
 
 import "./Experience.css";
 import WhiteBlockWrapper from "../WhiteBlockWrapper/WhiteBlockWrapper";
@@ -29,6 +30,9 @@ const experienceData = [
 ];
 
 const Experience = (props) => {
+  const width = useWindowWidth();
+  console.log(width);
+
   return (
     <div className="experience__wrapper">
       <div className="experience__title">
@@ -41,7 +45,14 @@ const Experience = (props) => {
         className="experience__white-block"
       >
         {experienceData.map(({ text, reverse }) => {
-          const translateX = reverse ? "translateX(-40%)" : "translateX(40%)";
+          let shiftLeft = 40,
+            shiftRight = 40;
+          if (width < 600) {
+            shiftLeft = 10;
+          }
+          const translateX = reverse
+            ? `translateX(-${shiftLeft}%)`
+            : "translateX(40%)";
           const styles = {
             transform: translateX,
           };

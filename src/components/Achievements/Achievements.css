@@ -54,3 +54,14 @@
 .point-block__point-title {
   font-size: 1.6rem;
 }
+
+@media (max-width: 850px) {
+}
+@media (max-width: 500px) {
+  .point-block__row {
+    flex-direction: column;
+  }
+  .point-block__2 {
+    transform: translate(100%, 2px);
+  }
+}
