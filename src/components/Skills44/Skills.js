@@ -25,7 +25,7 @@ const Skills = (props) => {
             Experienced in JavaScript. Love React, the way it makes easy to
             control app by splitting difficult to more simpler parts. I have
             very good experience in HTML and CSS. In my projects I write all css
-            and jsx by myself. Try to follow accessability and semantic rules.
+            and jsx by myself. Try to follow accessibility and semantic rules.
             Have experience in Figma and in Express.js and Node.js. Sharpening
             Firebase and build few projects on that already.
           </p>

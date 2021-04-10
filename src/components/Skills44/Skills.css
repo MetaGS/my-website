@@ -39,7 +39,9 @@
 @media (max-width: 850px) {
 }
 @media (max-width: 600px) {
+  .skills__white-block {
+    width: 95%;
+  }
   .skills__description {
-    padding-right: 0;
   }
 }
